@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	  .background input[type=radio],.background input[type=checkbox]{
+      -webkit-appearance: none;
+      background-image: url(icon.png);
+      width: 14px;
+      height: 14px;
+    }
+		.background input[type=checkbox]{
+      background-position: -25px -33px;
+    }
+    .background input[type=checkbox]:checked{
+      background-position: -60px -32px;
+    }
+    .background input[type=checkbox]+label,.background input[type=radio]+label{
+      position: relative;
+      top: -5px;
+    }
+    .background input[type=radio]{
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-position: -24px -10px;
+    }
+    .background input[type=radio]:checked{
+      background-position: -59px -10px;
+    }
+    
+    
+		.pseudo input[type=radio],.pseudo input[type=checkbox]{
+		  opacity: 0;
+		}
+		.pseudo input[type=radio]+label,.pseudo input[type=checkbox]+label{
+		  position: relative;
+		}
+		.pseudo input[type=radio]+label::before{
+		  content: '';
+		  position: absolute;
+		  left: -20px;
+		  top: 4px;
+		  display: inline-block;
+		  border: 1px solid #e5e5e5;
+		  border-radius: 50%;
+		  color: #FF0000;
+		  width: 14px;
+		  height: 14px;
+		}
+		.pseudo input[type=radio]:checked+label::after{
+      content: '';
+      position: absolute;
+      left: -15px;
+      top: 9px;
+      display: inline-block;
+      background-color: #FF0000;
+      border-radius: 50%;
+      color: #FF0000;
+      width: 6px;
+      height:6px;
+    }
+    .pseudo input[type=checkbox]+label::before{
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 4px;
+      display: inline-block;
+      border: 1px solid #e5e5e5;
+      color: #FF0000;
+      width: 14px;
+      height: 14px;
+    }
+    .pseudo input[type=checkbox]:checked+label::after{
+      content: '✔';
+      color: #FF0000;
+      position: absolute;
+      left: -18px;
+      top: 1px;
+      display: inline-block;
+      color: #FF0000;
+      width: 6px;
+      height:6px;
+    }
+	</style>
+	<body>
+	  <div class="pseudo">
+	    <div>
+        <input type="checkbox" name="checks" id="check1" value=""/>
+        <label for="check1">check1</label>
+        <input type="checkbox" name="checks" id="check2" value=""/>
+        <label for="check2">check2</label>
+      </div>
+      <div>
+        <input type="radio" name="raido" id="radio1" value="" />
+        <label for="radio1">radio1</label>
+        <input type="radio" name="raido" id="radio2" value="" />
+        <label for="radio2">radio2</label>
+      </div>
+	  </div>
+	  <button onclick="check()">切换</button>
+	</body>
+	<script type="text/javascript">
+		var checkout = document.querySelector(".pseudo");
+		function check(){
+		  checkout.className === "pseudo" ? checkout.className = "background" :checkout.className = "pseudo";
+		}
+	</script>
+</html>
